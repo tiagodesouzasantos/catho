@@ -15,7 +15,12 @@
   "author": "Tiago Santos",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "helmet": "^3.15.1"
+    "express-rate-limit": "^3.4.0",
+    "helmet": "^3.15.1",
+    "is-my-json-valid": "^2.19.0",
+    "swagger-ui-express": "^4.0.2"
   }
 }
