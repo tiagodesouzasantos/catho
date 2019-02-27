@@ -1,0 +1,21 @@
+{
+  "name": "catho-test",
+  "version": "1.0.0",
+  "description": "The test to fullstack dev for catho",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "catho",
+    "test",
+    "node.js",
+    "dev"
+  ],
+  "author": "Tiago Santos",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "helmet": "^3.15.1"
+  }
+}
