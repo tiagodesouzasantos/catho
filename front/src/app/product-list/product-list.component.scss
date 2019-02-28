@@ -1,0 +1,12 @@
+@import '_base.scss';
+#product-list{
+    // overflow-y: scroll;
+    mat-card{
+        padding: 20px;
+        img{
+            max-width: 300px;
+            max-height: 300px;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import '_base.scss';
+button{
+    padding: 5px;
+    margin: 10px;
+    border: 0px;
+    min-width: 80px;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: $header-footer;
+    color: $white;
+}

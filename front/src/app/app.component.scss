@@ -1,0 +1,35 @@
+@import '_base.scss';
+#home{
+    overflow: hidden;
+    header,footer{
+        background-color: $header-footer;
+        color: $white;
+        border-radius: 5px;
+        line-height: 30px;
+        font-family: $font-family;
+        span{
+            padding: 5px;
+        }
+        span.copyrigth{
+            font-size: 10px;
+        }
+    }
+    button{
+        padding: 2px;
+        max-height: 30px;
+        min-width: 60px;
+        border-radius: 5px;
+    }
+    button:hover{
+        background-color: $header-footer;
+        color: $white;
+    }
+    .counter{
+        background: $red;
+        border-radius: 30px;
+        font-size:10px;
+        width: 20px;
+        height: 20px;
+        margin: 5px 0 5px 0;
+    }
+}

@@ -1,0 +1,22 @@
+<section id="product-list" fxLayout="row wrap" fxLayoutAlign="center" fxFlex="100%">
+  <div fxLayout="column wrap" fxLayoutAlign="start" fxFlex="30%" fxFlex.xs="100%" *ngFor="let product of listOfProducts;">
+    <mat-card fxFlex="100%" fxLayoutAlign="center" fxLayout="row wrap">
+        <mat-card-header>
+          <mat-card-title>{{product.name}}</mat-card-title>
+          <mat-card-subtitle>{{product.value | currency:'BRL'}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://source.unsplash.com/random" alt="Product picture">
+        <mat-card-content>
+          <p>
+            {{product.desc}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions fxLayoutAlign="center">
+          <button mat-button fxLayoutAlign="center center" fxFlex="100%">
+              <i class="material-icons">add_shopping_cart</i>
+              Add to cart
+          </button>
+        </mat-card-actions>
+      </mat-card>      
+  </div>
+</section>
