@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartServiceService } from './../cart/cart-service.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,9 +12,14 @@ export class ProductListComponent implements OnInit {
     {_id:'standout', name:"Standout Ad", value:322.99, desc:'Allows advertisers to use a company logo and use a longer presentation text'},
     {_id:'premium', name:"Premium Ad", value:394.99, desc:'Same benefits as Standout Ad, but also puts the advertisement at the top of the results, allowing higher visibility'},
   ];
-  constructor() { }
+  listAddCart: any = this.listOfProducts;
 
+  constructor(private cart: CartServiceService) { }
+  addToCart(item:any){
+    this.cart.addToCart(item);
+  }
   ngOnInit() {
+    
   }
 
 }
