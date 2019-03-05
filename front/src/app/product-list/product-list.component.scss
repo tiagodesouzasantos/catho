@@ -8,5 +8,10 @@
             max-height: 300px;
             border-radius: 5px;
         }
+        mat-card-actions{
+            button{
+                height: 46px;
+            }
+        }
     }
 }

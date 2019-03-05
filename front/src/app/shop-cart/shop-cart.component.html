@@ -1,3 +1,15 @@
-<p>
-  shop-cart works!
-</p>
+<section id="shop-cart" fxLayout="row wrap" fxLayoutAlign="start" fxFlex="100%">
+  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start" *ngFor="let item of cartItens;let i = index; trackBy: trackByFn">
+    <img  src="https://source.unsplash.com/random" alt="Product picture">
+    <div fxLayout="column wrap" fxLayoutAlign="center start">
+      <span><b>{{ item.name }}</b> - {{item.value | currency:'BRL'}}</span>
+      <span><b>Quantidade:</b> {{ item.qtd }}</span>
+      <span>{{ item.desc }}</span>
+    </div>
+    <div fxLayoutAlign="center center">
+      <button (click)="deleteFromCart(item,i)" mat-button fxLayoutAlign="center center">
+        <i class="material-icons">delete</i>
+      </button>
+    </div>
+  </div>
+</section>

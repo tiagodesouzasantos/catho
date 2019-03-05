@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CartServiceService } from './../cart/cart-service.service';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -14,7 +14,7 @@ export class ProductListComponent implements OnInit {
   ];
   listAddCart: any = this.listOfProducts;
 
-  constructor(private cart: CartServiceService) { }
+  constructor(private cart: CartService) { }
   addToCart(item:any){
     this.cart.addToCart(item);
   }
