@@ -1,15 +1,20 @@
 <section id="shop-cart" fxLayout="row wrap" fxLayoutAlign="start" fxFlex="100%">
-  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start" *ngFor="let item of cartItens;let i = index; trackBy: trackByFn">
+  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start" *ngFor="let item of cartItens;let i = index;">
     <img  src="https://source.unsplash.com/random" alt="Product picture">
     <div fxLayout="column wrap" fxLayoutAlign="center start">
       <span><b>{{ item.name }}</b> - {{item.value | currency:'BRL'}}</span>
       <span><b>Quantidade:</b> {{ item.qtd }}</span>
       <span>{{ item.desc }}</span>
+      <span>Sku: {{ item._id }}</span>
     </div>
     <div fxLayoutAlign="center center">
       <button (click)="deleteFromCart(item,i)" mat-button fxLayoutAlign="center center">
         <i class="material-icons">delete</i>
       </button>
     </div>
+  </div>
+  <hr fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start">
+  <div fxLayout="row wrap" fxFlex="100%" fxLayoutAlign="start">
+    <span><b>Total:</b></span>  
   </div>
 </section>

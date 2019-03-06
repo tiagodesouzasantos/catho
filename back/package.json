@@ -4,7 +4,9 @@
   "description": "The test to fullstack dev for catho",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev":"nodemon index.js",
+    "migrations":"node migrations/index.js"
   },
   "keywords": [
     "catho",
@@ -15,12 +17,20 @@
   "author": "Tiago Santos",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
+    "custom-env": "^1.0.0",
     "express": "^4.16.4",
     "express-rate-limit": "^3.4.0",
     "helmet": "^3.15.1",
     "is-my-json-valid": "^2.19.0",
+    "jsonwebtoken": "^8.5.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0",
     "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "mocha": "^6.0.2"
   }
 }

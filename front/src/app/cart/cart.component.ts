@@ -8,11 +8,16 @@ import { CartService } from './cart.service';
 })
 export class CartComponent implements OnInit {
   @Input() cartItens: any = [];
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
     CartService.addedProductEmitter.subscribe(products=>{
       this.cartItens = products;
     });
+    if (CartService.cartList.length == 0) { 
+      this.cartService.realoadList();
+      this.cartItens = CartService.cartList;
+    }
+
   }
 }

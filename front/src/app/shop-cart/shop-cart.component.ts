@@ -11,14 +11,11 @@ export class ShopCartComponent implements OnInit {
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-    CartService.addedProductEmitter.subscribe(products => {
-
-    });
     this.loadCart();
-    
   }
   loadCart(){
     let newCartItens = [];
+    if (CartService.cartList.length == 0) { this.cartService.realoadList() }
     for (let item of CartService.cartList) {
       if (newCartItens[item._id]) {
         newCartItens[item._id] = {
@@ -39,14 +36,11 @@ export class ShopCartComponent implements OnInit {
 
   deleteFromCart(item,_id){
     this.cartService.deleteItem(item._id);
-    if (this.cartItens[_id].qtd<=1){
-      this.cartItens[_id].splice(_id,1);
+    if (this.cartItens[_id].qtd==1){
+      this.cartItens.splice(_id,1);
     }else{
       this.cartItens[_id].qtd--;
     }
-    console.log(item);
   }
-  trackByFn(i :number){
-    return i;
-  }
+
 }

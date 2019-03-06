@@ -15,13 +15,7 @@
         }
     }
     button{
-        padding: 2px;
-        max-height: 30px;
-        min-width: 60px;
-        border-radius: 5px;
-    }
-    button:hover{
-        background-color: $header-footer;
+        background-color: $header-footer;   
         color: $white;
     }
     

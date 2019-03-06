@@ -1,0 +1,8 @@
+{
+"DB_DIALECT":"mysql",
+"DB_HOST":"localhost",
+"DB_DATABASE":"catho",
+"DB_USERNAME":"admin",
+"DB_PASSWORD":"senhaSecreta",
+"SECRET":"-|#C4th0#|-"
+}

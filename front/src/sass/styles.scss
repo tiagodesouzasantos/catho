@@ -10,4 +10,8 @@ button{
 button:hover{
     background-color: $header-footer;
     color: $white;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
 }

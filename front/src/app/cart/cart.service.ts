@@ -12,15 +12,17 @@ export class CartService {
   addToCart(product: Product){
     CartService.cartList.push(product);
     CartService.addedProductEmitter.emit(CartService.cartList);
+    this.setToStorage();
+  }
+  getStorageList(){
+    return JSON.parse(atob(localStorage.getItem('cartList')));
+  }
+  setToStorage(){
     localStorage.setItem(
       'cartList',
       btoa(JSON.stringify(CartService.cartList))
     );
   }
-  getStorageList(){
-    return JSON.parse(atob(localStorage.getItem('cartList')));
-  }
-
   realoadList(){
     if (CartService.cartList.length<1){
       let cartList = this.getStorageList();
@@ -33,8 +35,10 @@ export class CartService {
     for (let i=0;i < CartService.cartList.length;i++){
       if (CartService.cartList[i]._id ==_id){
         CartService.cartList.splice(i,1);
+        CartService.addedProductEmitter.emit(CartService.cartList);
+        this.setToStorage();
+        return;
       }
     }
-    CartService.addedProductEmitter.emit(CartService.cartList);
   }
 }
