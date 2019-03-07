@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from './../cart/cart.service';
+import { CustomersService } from './../customers/customers.service';
+import { CartCalcService } from './cart-calc.service';
 
 @Component({
   selector: 'app-shop-cart',
@@ -8,10 +10,19 @@ import { CartService } from './../cart/cart.service';
 })
 export class ShopCartComponent implements OnInit {
   @Input() cartItens: any = [];
-  constructor(private cartService: CartService) { }
+  @Input() totalCart: number = 0;
+  @Input() customer: any = [];
+
+  constructor(private cartService: CartService, private cartCalcService: CartCalcService) { }
 
   ngOnInit() {
     this.loadCart();
+    let _this = this;
+    CustomersService.addedCustomerEmitter.subscribe(selectedCustomer => {
+      _this.customer = selectedCustomer;      
+      this.calcTotal();
+    });
+    this.calcTotal();
   }
   loadCart(){
     let newCartItens = [];
@@ -41,6 +52,17 @@ export class ShopCartComponent implements OnInit {
     }else{
       this.cartItens[_id].qtd--;
     }
+    this.calcTotal();
   }
 
+  calcTotal(){
+    let _this = this;
+    let cartData = {
+      customer: this.customer,
+      products: this.cartItens
+    };
+    this.cartCalcService.post(cartData).subscribe(calcResult => {
+      _this.totalCart = calcResult.total;
+    });
+  }
 }

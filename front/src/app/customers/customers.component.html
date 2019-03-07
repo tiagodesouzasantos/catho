@@ -1,0 +1,10 @@
+<section id="customers">
+  <div>
+    <select  id="sCustomers" (change)="onChangeSelect($event.target.value)">
+      <option value="0" disabled selected>Sou o cliente</option>
+      <option *ngFor="let customer of customerList" value="{{customer.id}}">
+        {{customer.name}}
+      </option>
+    </select>
+  </div>
+</section>
