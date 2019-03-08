@@ -12,8 +12,8 @@ export class CartCalcService {
 
   constructor(private httpClient: HttpClient) { }
 
-  post(cartData: CartCalc): Observable<CartCalc[]> {
-    return this.httpClient.post<CartCalc[]>(this.getUrl(), cartData);
+  post(cartData: CartCalc): Observable<CartCalc> {
+    return this.httpClient.post<CartCalc>(this.getUrl(), cartData);
   }
 
   getUrl() {

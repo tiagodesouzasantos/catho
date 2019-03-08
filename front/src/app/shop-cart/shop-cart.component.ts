@@ -13,17 +13,19 @@ export class ShopCartComponent implements OnInit {
   @Input() totalCart: number = 0;
   @Input() customer: any = [];
 
-  constructor(private cartService: CartService, private cartCalcService: CartCalcService) { }
+  constructor(private cartService: CartService, private cartCalcService: CartCalcService) {  }
 
   ngOnInit() {
     this.loadCart();
     let _this = this;
+    this.customer = CustomersService.customer;
     CustomersService.addedCustomerEmitter.subscribe(selectedCustomer => {
       _this.customer = selectedCustomer;      
       this.calcTotal();
     });
     this.calcTotal();
   }
+
   loadCart(){
     let newCartItens = [];
     if (CartService.cartList.length == 0) { this.cartService.realoadList() }

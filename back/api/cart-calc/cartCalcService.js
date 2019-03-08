@@ -43,8 +43,6 @@ function aplyRule(rules,products){
         }
         valorTotal = value + valorTotal;
     }
-    console.log(`valor ${valorTotal}`);
-    
     return valorTotal;
 }
 
