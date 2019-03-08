@@ -43,32 +43,20 @@ function aplyRule(rules,products){
         }
         valorTotal = value + valorTotal;
     }
+    console.log(`valor ${valorTotal}`);
+    
     return valorTotal;
 }
 
 function ruleForEach(start,qtt,value,newValue){
-    let finalValue = 0;
-    if (start<=qtt){
-        finalValue = qtt*newValue;
-    }else{
-        finalValue = qtt * value;
-    }
-    return finalValue;
+    return start <= qtt ? qtt * newValue : qtt * value;
 }
 
 function ruleForPack(packSize,qtt,value,newValue){
-    if(qtt>=packSize){
-        let packQtt = 0;
-        let restQtt = 0;
-        packQtt = Math.trunc(qtt / packSize);
-        restQtt = qtt%packSize;
-        let packValue = (packQtt*packSize)*newValue;
-        let restValue = restQtt * value;
-        return packValue + restValue;
-    }else{
-        return qtt*value;
-    }
-    console.log('contruindo sonhos');
+    if (qtt < packSize) return qtt * value;
+    let packValue = ((Math.trunc(qtt / packSize)) * packSize) * newValue;
+    let restValue = (qtt % packSize) * value;
+    return packValue + restValue;
 }
 
 module.exports = {
